@@ -10,7 +10,10 @@ import (
 
 func main() {
 
-	Database.InitDb()
+	err := Database.InitDb()
+	if err != nil {
+		panic(err)
+	}
 
 	app := gin.Default()
 
