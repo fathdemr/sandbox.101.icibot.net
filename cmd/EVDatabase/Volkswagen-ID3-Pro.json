@@ -1,0 +1,178 @@
+{
+  "car_model": "Volkswagen ID.3 Pro",
+  "images": [
+    ""
+  ],
+  "available_since": "Available since May 2024",
+  "usable_battery": "59.0 kWhUseable Battery",
+  "real_range": "360 km *Real Range",
+  "efficiency": "164 Wh/km *Efficiency",
+  "real_range_estimation": {
+    "city_cold_weather": "345 km",
+    "highway_cold_weather": "255 km",
+    "combined_cold_weather": "300 km",
+    "city_mild_weather": "530 km",
+    "highway_mild_weather": "330 km",
+    "combined_mild_weather": "415 km"
+  },
+  "performance": {
+    "acceleration_0_to_100": "7.6 sec",
+    "total_power": "150 kW (204 PS)",
+    "top_speed": "160 km/h",
+    "total_torque": "310 Nm",
+    "electric_range": "360 km",
+    "drive": "Rear"
+  },
+  "battery": {
+    "nominal_capacity": "63.0 kWh",
+    "usable_capacity": "59.0 kWh",
+    "battery_type": "Lithium-ion",
+    "cathode_material": "NCM",
+    "number_of_cells": "216",
+    "pack_configuration": "108s2p",
+    "architecture": "400 V",
+    "nominal_voltage": "397 V",
+    "warranty_period": "8 years",
+    "form_factor": "No Data",
+    "warranty_mileage": "160,000 km",
+    "battery_name_reference": "No Data"
+  },
+  "charging": {
+    "home_charge_port": "Type 2",
+    "home_charge_time_0_to_415_km": "6h30m",
+    "home_port_location": "Right Side - Rear",
+    "home_charge_speed": "57 km/h",
+    "home_charge_power": "11 kW AC",
+    "fast_charge_port": "CCS",
+    "fast_charge_time_41_to_332_km": "25 min",
+    "fc_port_location": "Right Side - Rear",
+    "fast_charge_speed": "600 km/h",
+    "fast_charge_power_max": "165 kW DC",
+    "autocharge_supported": "No",
+    "fast_charge_power_10_to_80p": "105 kW DC",
+    "plug_and_charge_supported": "Yes",
+    "plug_and_charge_supported_protocol": "ISO 15118-2"
+  },
+  "bidirectional_charging": {
+    "v2l_supported": "No",
+    "exterior_outlets": "-",
+    "v2l_max_output_power": "-",
+    "interior_outlets": "-",
+    "v2h_via_ac_supported": "No",
+    "v2h_via_dc_supported": "No",
+    "v2h_max_output_power_ac": "-",
+    "v2h_max_output_power_dc": "-",
+    "v2g_via_ac_supported": "No",
+    "v2g_max_output_power_ac": "-",
+    "v2g_via_dc_supported": "No",
+    "v2g_max_output_power_dc": "-"
+  },
+  "energy_consumption_range_real": {
+    "range": "360 km",
+    "co2_emissions": "0 g/km",
+    "vehicle_consumption": "164 Wh/km",
+    "vehicle_fuel_equivalent": "1.8 l/100km"
+  },
+  "energy_consumption_range_tel": {
+    "range": "434 km",
+    "co2_emissions": "0 g/km",
+    "vehicle_consumption": "153 Wh/km",
+    "vehicle_fuel_equivalent": "1.7 l/100km"
+  },
+  "energy_consumption_range_teh": {
+    "range": "",
+    "co2_emissions": "",
+    "vehicle_consumption": "",
+    "vehicle_fuel_equivalent": ""
+  },
+  "energy_consumption_estimation": {
+    "city_cold_weather": "171 Wh/km",
+    "highway_cold_weather": "231 Wh/km",
+    "combined_cold_weather": "197 Wh/km",
+    "city_mild_weather": "111 Wh/km",
+    "highway_mild_weather": "179 Wh/km",
+    "combined_mild_weather": "142 Wh/km"
+  },
+  "dimensions_and_weight": {
+    "length": "",
+    "width": "",
+    "width_with_mirrors": "",
+    "height": "",
+    "wheelbase": "",
+    "weight_un_laden_eu": "",
+    "gross_vehicle_weight_gvwr": "",
+    "max_payload": "",
+    "cargo_volume": "",
+    "cargo_volume_max": "",
+    "cargo_volume_frunk": "",
+    "roof_load": "",
+    "tow_hitch_possible": "",
+    "towing_weight_un_braked": "",
+    "towing_weight_braked": "",
+    "vertical_load_max": ""
+  },
+  "miscellaneous": {
+    "number_seats": "",
+    "isofix": "",
+    "turning_circle": "",
+    "platform": "",
+    "ev_dedicated_platform": "",
+    "car_body": "",
+    "segment": "",
+    "roof_rails": "",
+    "heat_pump": "",
+    "hp_standard_equipment": ""
+  },
+  "charge_types": [
+    {
+      "charge_type": "Type 2 (Mennekes - IEC 62196)",
+      "image_url": "https://ev-database.org/img/informatie/Type-2-Mennekes-IEC-62196.jpg",
+      "charging_points": [
+        {
+          "charge_point_name": "Wall Plug (2.3 kW)",
+          "max_power": "230V / 1x10A",
+          "avg_power": "2.3 kW",
+          "time": "30h15m",
+          "rate": "12 km/h"
+        },
+        {
+          "charge_point_name": "1-phase 16A (3.7 kW)",
+          "max_power": "230V / 1x16A",
+          "avg_power": "3.7 kW",
+          "time": "18h45m",
+          "rate": "19 km/h"
+        },
+        {
+          "charge_point_name": "1-phase 32A (7.4 kW)",
+          "max_power": "230V / 1x32A",
+          "avg_power": "7.4 kW",
+          "time": "9h30m",
+          "rate": "38 km/h"
+        },
+        {
+          "charge_point_name": "3-phase 16A (11 kW)",
+          "max_power": "400V / 3x16A",
+          "avg_power": "11 kW",
+          "time": "6h30m",
+          "rate": "55 km/h"
+        },
+        {
+          "charge_point_name": "3-phase 32A (22 kW)",
+          "max_power": "400V / 3x16A",
+          "avg_power": "11 kW †",
+          "time": "6h30m",
+          "rate": "55 km/h"
+        }
+      ],
+      "content": "Charging is possible by using a regular wall plug or a charging station. Public charging is always done through a charging station. How fast the EV can charge depends on the charging station (EVSE) used and the maximum charging capacity of the EV. The table below shows all possible options for charging the Volkswagen ID.3 Pro. Each option shows how fast the battery can be charged from empty to full.",
+      "info": "† = Limited by on-board charger, vehicle cannot charge faster."
+    },
+    {
+      "charge_type": "",
+      "image_url": "https://ev-database.org",
+      "charging_points": null,
+      "content": "",
+      "info": ""
+    }
+  ]
+}

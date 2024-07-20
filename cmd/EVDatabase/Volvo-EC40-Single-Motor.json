@@ -1,0 +1,178 @@
+{
+  "car_model": "Volvo EC40 Single Motor",
+  "images": [
+    ""
+  ],
+  "available_since": "Available since February 2024",
+  "usable_battery": "67.0 kWhUseable Battery",
+  "real_range": "360 km *Real Range",
+  "efficiency": "186 Wh/km *Efficiency",
+  "real_range_estimation": {
+    "city_cold_weather": "360 km",
+    "highway_cold_weather": "255 km",
+    "combined_cold_weather": "305 km",
+    "city_mild_weather": "530 km",
+    "highway_mild_weather": "325 km",
+    "combined_mild_weather": "410 km"
+  },
+  "performance": {
+    "acceleration_0_to_100": "7.3 sec",
+    "total_power": "175 kW (238 PS)",
+    "top_speed": "180 km/h",
+    "total_torque": "420 Nm",
+    "electric_range": "360 km",
+    "drive": "Rear"
+  },
+  "battery": {
+    "nominal_capacity": "70.0 kWh",
+    "usable_capacity": "67.0 kWh",
+    "battery_type": "Lithium-ion",
+    "cathode_material": "NCM",
+    "number_of_cells": "No Data",
+    "pack_configuration": "No Data",
+    "architecture": "400 V",
+    "nominal_voltage": "No Data",
+    "warranty_period": "8 years",
+    "form_factor": "No Data",
+    "warranty_mileage": "160,000 km",
+    "battery_name_reference": "No Data"
+  },
+  "charging": {
+    "home_charge_port": "Type 2",
+    "home_charge_time_0_to_415_km": "7h15m",
+    "home_port_location": "Left Side - Rear",
+    "home_charge_speed": "50 km/h",
+    "home_charge_power": "11 kW AC",
+    "fast_charge_port": "CCS",
+    "fast_charge_time_41_to_332_km": "27 min",
+    "fc_port_location": "Left Side - Rear",
+    "fast_charge_speed": "560 km/h",
+    "fast_charge_power_max": "180 kW DC",
+    "autocharge_supported": "Yes",
+    "fast_charge_power_10_to_80p": "110 kW DC",
+    "plug_and_charge_supported": "No",
+    "plug_and_charge_supported_protocol": "-"
+  },
+  "bidirectional_charging": {
+    "v2l_supported": "No",
+    "exterior_outlets": "-",
+    "v2l_max_output_power": "-",
+    "interior_outlets": "-",
+    "v2h_via_ac_supported": "No",
+    "v2h_via_dc_supported": "No",
+    "v2h_max_output_power_ac": "-",
+    "v2h_max_output_power_dc": "-",
+    "v2g_via_ac_supported": "No",
+    "v2g_max_output_power_ac": "-",
+    "v2g_via_dc_supported": "No",
+    "v2g_max_output_power_dc": "-"
+  },
+  "energy_consumption_range_real": {
+    "range": "360 km",
+    "co2_emissions": "0 g/km",
+    "vehicle_consumption": "186 Wh/km",
+    "vehicle_fuel_equivalent": "2.1 l/100km"
+  },
+  "energy_consumption_range_tel": {
+    "range": "487 km",
+    "co2_emissions": "0 g/km",
+    "vehicle_consumption": "167 Wh/km",
+    "vehicle_fuel_equivalent": "1.9 l/100km"
+  },
+  "energy_consumption_range_teh": {
+    "range": "445 km",
+    "co2_emissions": "0 g/km",
+    "vehicle_consumption": "181 Wh/km",
+    "vehicle_fuel_equivalent": "2.0 l/100km"
+  },
+  "energy_consumption_estimation": {
+    "city_cold_weather": "186 Wh/km",
+    "highway_cold_weather": "263 Wh/km",
+    "combined_cold_weather": "220 Wh/km",
+    "city_mild_weather": "126 Wh/km",
+    "highway_mild_weather": "206 Wh/km",
+    "combined_mild_weather": "163 Wh/km"
+  },
+  "dimensions_and_weight": {
+    "length": "",
+    "width": "",
+    "width_with_mirrors": "",
+    "height": "",
+    "wheelbase": "",
+    "weight_un_laden_eu": "",
+    "gross_vehicle_weight_gvwr": "",
+    "max_payload": "",
+    "cargo_volume": "",
+    "cargo_volume_max": "",
+    "cargo_volume_frunk": "",
+    "roof_load": "",
+    "tow_hitch_possible": "",
+    "towing_weight_un_braked": "",
+    "towing_weight_braked": "",
+    "vertical_load_max": ""
+  },
+  "miscellaneous": {
+    "number_seats": "",
+    "isofix": "",
+    "turning_circle": "",
+    "platform": "",
+    "ev_dedicated_platform": "",
+    "car_body": "",
+    "segment": "",
+    "roof_rails": "",
+    "heat_pump": "",
+    "hp_standard_equipment": ""
+  },
+  "charge_types": [
+    {
+      "charge_type": "Type 2 (Mennekes - IEC 62196)",
+      "image_url": "https://ev-database.org/img/informatie/Type-2-Mennekes-IEC-62196.jpg",
+      "charging_points": [
+        {
+          "charge_point_name": "Wall Plug (2.3 kW)",
+          "max_power": "230V / 1x10A",
+          "avg_power": "2.3 kW",
+          "time": "34h30m",
+          "rate": "10 km/h"
+        },
+        {
+          "charge_point_name": "1-phase 16A (3.7 kW)",
+          "max_power": "230V / 1x16A",
+          "avg_power": "3.7 kW",
+          "time": "21h30m",
+          "rate": "17 km/h"
+        },
+        {
+          "charge_point_name": "1-phase 32A (7.4 kW)",
+          "max_power": "230V / 1x32A",
+          "avg_power": "7.4 kW",
+          "time": "10h45m",
+          "rate": "33 km/h"
+        },
+        {
+          "charge_point_name": "3-phase 16A (11 kW)",
+          "max_power": "400V / 3x16A",
+          "avg_power": "11 kW",
+          "time": "7h15m",
+          "rate": "50 km/h"
+        },
+        {
+          "charge_point_name": "3-phase 32A (22 kW)",
+          "max_power": "400V / 3x16A",
+          "avg_power": "11 kW †",
+          "time": "7h15m",
+          "rate": "50 km/h"
+        }
+      ],
+      "content": "Charging is possible by using a regular wall plug or a charging station. Public charging is always done through a charging station. How fast the EV can charge depends on the charging station (EVSE) used and the maximum charging capacity of the EV. The table below shows all possible options for charging the Volvo EC40 Single Motor. Each option shows how fast the battery can be charged from empty to full.",
+      "info": "† = Limited by on-board charger, vehicle cannot charge faster."
+    },
+    {
+      "charge_type": "",
+      "image_url": "https://ev-database.org",
+      "charging_points": null,
+      "content": "",
+      "info": ""
+    }
+  ]
+}

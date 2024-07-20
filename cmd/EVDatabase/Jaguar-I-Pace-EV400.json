@@ -1,0 +1,178 @@
+{
+  "car_model": "Jaguar I-Pace EV400",
+  "images": [
+    ""
+  ],
+  "available_since": "Available since January 2023",
+  "usable_battery": "84.7 kWhUseable Battery",
+  "real_range": "380 km *Real Range",
+  "efficiency": "223 Wh/km *Efficiency",
+  "real_range_estimation": {
+    "city_cold_weather": "385 km",
+    "highway_cold_weather": "270 km",
+    "combined_cold_weather": "325 km",
+    "city_mild_weather": "550 km",
+    "highway_mild_weather": "340 km",
+    "combined_mild_weather": "430 km"
+  },
+  "performance": {
+    "acceleration_0_to_100": "4.8 sec",
+    "total_power": "294 kW (400 PS)",
+    "top_speed": "200 km/h",
+    "total_torque": "696 Nm",
+    "electric_range": "380 km",
+    "drive": "AWD"
+  },
+  "battery": {
+    "nominal_capacity": "90.0 kWh",
+    "usable_capacity": "84.7 kWh",
+    "battery_type": "Lithium-ion",
+    "cathode_material": "NCM622",
+    "number_of_cells": "432",
+    "pack_configuration": "108s4p",
+    "architecture": "400 V",
+    "nominal_voltage": "400 V",
+    "warranty_period": "8 years",
+    "form_factor": "Pouch",
+    "warranty_mileage": "160,000 km",
+    "battery_name_reference": "No Data"
+  },
+  "charging": {
+    "home_charge_port": "Type 2",
+    "home_charge_time_0_to_415_km": "9h15m",
+    "home_port_location": "Left Side - Front",
+    "home_charge_speed": "42 km/h",
+    "home_charge_power": "11 kW AC",
+    "fast_charge_port": "CCS",
+    "fast_charge_time_41_to_332_km": "44 min",
+    "fc_port_location": "Left Side - Front",
+    "fast_charge_speed": "360 km/h",
+    "fast_charge_power_max": "104 kW DC",
+    "autocharge_supported": "Yes",
+    "fast_charge_power_10_to_80p": "85 kW DC",
+    "plug_and_charge_supported": "No",
+    "plug_and_charge_supported_protocol": "-"
+  },
+  "bidirectional_charging": {
+    "v2l_supported": "No",
+    "exterior_outlets": "-",
+    "v2l_max_output_power": "-",
+    "interior_outlets": "-",
+    "v2h_via_ac_supported": "No",
+    "v2h_via_dc_supported": "No",
+    "v2h_max_output_power_ac": "-",
+    "v2h_max_output_power_dc": "-",
+    "v2g_via_ac_supported": "No",
+    "v2g_max_output_power_ac": "-",
+    "v2g_via_dc_supported": "No",
+    "v2g_max_output_power_dc": "-"
+  },
+  "energy_consumption_range_real": {
+    "range": "380 km",
+    "co2_emissions": "0 g/km",
+    "vehicle_consumption": "223 Wh/km",
+    "vehicle_fuel_equivalent": "2.5 l/100km"
+  },
+  "energy_consumption_range_tel": {
+    "range": "470 km",
+    "co2_emissions": "0 g/km",
+    "vehicle_consumption": "220 Wh/km",
+    "vehicle_fuel_equivalent": "2.5 l/100km"
+  },
+  "energy_consumption_range_teh": {
+    "range": "408 km",
+    "co2_emissions": "0 g/km",
+    "vehicle_consumption": "252 Wh/km",
+    "vehicle_fuel_equivalent": "2.8 l/100km"
+  },
+  "energy_consumption_estimation": {
+    "city_cold_weather": "220 Wh/km",
+    "highway_cold_weather": "314 Wh/km",
+    "combined_cold_weather": "261 Wh/km",
+    "city_mild_weather": "154 Wh/km",
+    "highway_mild_weather": "249 Wh/km",
+    "combined_mild_weather": "197 Wh/km"
+  },
+  "dimensions_and_weight": {
+    "length": "",
+    "width": "",
+    "width_with_mirrors": "",
+    "height": "",
+    "wheelbase": "",
+    "weight_un_laden_eu": "",
+    "gross_vehicle_weight_gvwr": "",
+    "max_payload": "",
+    "cargo_volume": "",
+    "cargo_volume_max": "",
+    "cargo_volume_frunk": "",
+    "roof_load": "",
+    "tow_hitch_possible": "",
+    "towing_weight_un_braked": "",
+    "towing_weight_braked": "",
+    "vertical_load_max": ""
+  },
+  "miscellaneous": {
+    "number_seats": "",
+    "isofix": "",
+    "turning_circle": "",
+    "platform": "",
+    "ev_dedicated_platform": "",
+    "car_body": "",
+    "segment": "",
+    "roof_rails": "",
+    "heat_pump": "",
+    "hp_standard_equipment": ""
+  },
+  "charge_types": [
+    {
+      "charge_type": "Type 2 (Mennekes - IEC 62196)",
+      "image_url": "https://ev-database.org/img/informatie/Type-2-Mennekes-IEC-62196.jpg",
+      "charging_points": [
+        {
+          "charge_point_name": "Wall Plug (2.3 kW)",
+          "max_power": "230V / 1x10A",
+          "avg_power": "2.3 kW",
+          "time": "43h30m",
+          "rate": "9 km/h"
+        },
+        {
+          "charge_point_name": "1-phase 16A (3.7 kW)",
+          "max_power": "230V / 1x16A",
+          "avg_power": "3.7 kW",
+          "time": "27 hours",
+          "rate": "14 km/h"
+        },
+        {
+          "charge_point_name": "1-phase 32A (7.4 kW)",
+          "max_power": "230V / 1x32A",
+          "avg_power": "7.4 kW",
+          "time": "13h30m",
+          "rate": "28 km/h"
+        },
+        {
+          "charge_point_name": "3-phase 16A (11 kW)",
+          "max_power": "400V / 3x16A",
+          "avg_power": "11 kW",
+          "time": "9h15m",
+          "rate": "41 km/h"
+        },
+        {
+          "charge_point_name": "3-phase 32A (22 kW)",
+          "max_power": "400V / 3x16A",
+          "avg_power": "11 kW †",
+          "time": "9h15m",
+          "rate": "41 km/h"
+        }
+      ],
+      "content": "Charging is possible by using a regular wall plug or a charging station. Public charging is always done through a charging station. How fast the EV can charge depends on the charging station (EVSE) used and the maximum charging capacity of the EV. The table below shows all possible options for charging the Jaguar I-Pace EV400. Each option shows how fast the battery can be charged from empty to full.",
+      "info": "† = Limited by on-board charger, vehicle cannot charge faster."
+    },
+    {
+      "charge_type": "",
+      "image_url": "https://ev-database.org",
+      "charging_points": null,
+      "content": "",
+      "info": ""
+    }
+  ]
+}
