@@ -1,8 +1,8 @@
 package models
 
 type DimensionsAndWeight struct {
-	Id                     uint   `gorm:"primary_key" json:"id"`
-	CarId                  uint   `json:"car_id"`
+	Id                     uint64 `gorm:"primary_key" json:"id"`
+	CarId                  uint64 `json:"car_id"`
 	Length                 string `json:"length"`
 	Width                  string `json:"width"`
 	WidthWithMirrors       string `json:"width_with_mirrors"`
@@ -19,4 +19,5 @@ type DimensionsAndWeight struct {
 	TowingWeightUnBraked   string `json:"towing_weight_un_braked"`
 	TowingWeightBraked     string `json:"towing_weight_braked"`
 	VerticalLoadMax        string `json:"vertical_load_max"`
+	BaseRecordFields
 }

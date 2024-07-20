@@ -5,15 +5,14 @@ import (
 	"io"
 	"log"
 	"os"
-	"sandbox.101.icibot.net/Database"
+	"sandbox.101.icibot.net/Config"
 	"sandbox.101.icibot.net/models"
-	"sandbox.101.icibot.net/requestmodels"
 	"strconv"
 	"strings"
 )
 
-func readJSONFiles(directory string) ([]requestmodels.CarRequest, error) {
-	var cars []requestmodels.CarRequest
+func readJSONFiles(directory string) ([]CarRequest, error) {
+	var cars []CarRequest
 
 	files, err := os.ReadDir(directory)
 	if err != nil {
@@ -40,10 +39,10 @@ func readJSONFiles(directory string) ([]requestmodels.CarRequest, error) {
 		}
 		jsonFile.Close()
 
-		var fileCars []requestmodels.CarRequest
+		var fileCars []CarRequest
 		err = json.Unmarshal(byteValue, &fileCars)
 		if err != nil {
-			var car requestmodels.CarRequest
+			var car CarRequest
 			err = json.Unmarshal(byteValue, &car)
 			if err != nil {
 				return nil, err
@@ -57,7 +56,7 @@ func readJSONFiles(directory string) ([]requestmodels.CarRequest, error) {
 	return cars, nil
 }
 
-func convertCarRequestToCar(carRequest requestmodels.CarRequest) (models.Car, error) {
+func convertCarRequestToCar(carRequest CarRequest) (models.Car, error) {
 	NominalCapacity := strings.Replace(carRequest.Battery.NominalCapacity, " kWh", "", -1)
 	UsableCapacity := strings.Replace(carRequest.Battery.UsableCapacity, " kWh", "", -1)
 
@@ -301,17 +300,17 @@ func convertCarRequestToCar(carRequest requestmodels.CarRequest) (models.Car, er
 		UsableBattery:               carRequest.UsableBattery,
 		RealRange:                   carRequest.RealRange,
 		Efficiency:                  carRequest.Efficiency,
-		RealRangeEstimation:         RealRangeEstimation,
-		Performance:                 Performance,
-		Battery:                     Battery,
-		Charging:                    Charging,
-		BidirectionalCharging:       BidirectionalCharging,
-		EnergyConsumptionRangeReal:  EnergyConsumptionRangeReal,
-		EnergyConsumptionRangeTel:   EnergyConsumptionRangeTel,
-		EnergyConsumptionRangeTeh:   EnergyConsumptionRangeTeh,
-		EnergyConsumptionEstimation: EnergyConsumptionEstimation,
-		DimensionsAndWeight:         DimensionsAndWeight,
-		Miscellaneous:               Miscellaneous,
+		RealRangeEstimation:         &RealRangeEstimation,
+		Performance:                 &Performance,
+		Battery:                     &Battery,
+		Charging:                    &Charging,
+		BidirectionalCharging:       &BidirectionalCharging,
+		EnergyConsumptionRangeReal:  &EnergyConsumptionRangeReal,
+		EnergyConsumptionRangeTel:   &EnergyConsumptionRangeTel,
+		EnergyConsumptionRangeTeh:   &EnergyConsumptionRangeTeh,
+		EnergyConsumptionEstimation: &EnergyConsumptionEstimation,
+		DimensionsAndWeight:         &DimensionsAndWeight,
+		Miscellaneous:               &Miscellaneous,
 		ChargeTypes:                 chargeTypes,
 	}
 
@@ -321,7 +320,7 @@ func convertCarRequestToCar(carRequest requestmodels.CarRequest) (models.Car, er
 
 func main() {
 
-	err := Database.InitDb()
+	err := Config.InitDb()
 
 	requestCars, err := readJSONFiles("cmd/EVDatabase")
 	if err != nil {
@@ -335,97 +334,97 @@ func main() {
 			log.Fatal("failed to convert car request to car model:", err)
 		}
 
-		result := Database.Db.Create(&modelCars)
+		result := Config.Db.Create(&modelCars)
 		if result.Error != nil {
 			log.Fatalf("failed to create car: %v", result.Error)
 		}
 
 		modelCars.RealRangeEstimation.CarId = modelCars.Id
 
-		Database.Db.Create(&modelCars.RealRangeEstimation)
+		Config.Db.Create(&modelCars.RealRangeEstimation)
 		if result.Error != nil {
 			log.Fatalf("failed to create battery: %v", result.Error)
 		}
 
 		modelCars.Performance.CarId = modelCars.Id
 
-		result = Database.Db.Create(&modelCars.Performance)
+		result = Config.Db.Create(&modelCars.Performance)
 		if result.Error != nil {
 			log.Fatalf("failed to create battery: %v", result.Error)
 		}
 
 		modelCars.Battery.CarId = modelCars.Id
 
-		result = Database.Db.Create(&modelCars.Battery)
+		result = Config.Db.Create(&modelCars.Battery)
 		if result.Error != nil {
 			log.Fatalf("failed to create battery: %v", result.Error)
 		}
 
 		modelCars.Charging.CarId = modelCars.Id
 
-		result = Database.Db.Create(&modelCars.Charging)
+		result = Config.Db.Create(&modelCars.Charging)
 		if result.Error != nil {
 			log.Fatalf("failed to create battery: %v", result.Error)
 		}
 
 		modelCars.BidirectionalCharging.CarId = modelCars.Id
 
-		result = Database.Db.Create(&modelCars.BidirectionalCharging)
+		result = Config.Db.Create(&modelCars.BidirectionalCharging)
 		if result.Error != nil {
 			log.Fatalf("failed to create battery: %v", result.Error)
 		}
 
 		modelCars.EnergyConsumptionRangeReal.CarId = modelCars.Id
 
-		result = Database.Db.Create(&modelCars.EnergyConsumptionRangeReal)
+		result = Config.Db.Create(&modelCars.EnergyConsumptionRangeReal)
 		if result.Error != nil {
 			log.Fatalf("failed to create battery: %v", result.Error)
 		}
 
 		modelCars.EnergyConsumptionRangeTel.CarId = modelCars.Id
 
-		result = Database.Db.Create(&modelCars.EnergyConsumptionRangeTel)
+		result = Config.Db.Create(&modelCars.EnergyConsumptionRangeTel)
 		if result.Error != nil {
 			log.Fatalf("failed to create battery: %v", result.Error)
 		}
 
 		modelCars.EnergyConsumptionRangeTeh.CarId = modelCars.Id
 
-		result = Database.Db.Create(&modelCars.EnergyConsumptionRangeTeh)
+		result = Config.Db.Create(&modelCars.EnergyConsumptionRangeTeh)
 		if result.Error != nil {
 			log.Fatalf("failed to create battery: %v", result.Error)
 		}
 
 		modelCars.EnergyConsumptionEstimation.CarId = modelCars.Id
 
-		result = Database.Db.Create(&modelCars.EnergyConsumptionEstimation)
+		result = Config.Db.Create(&modelCars.EnergyConsumptionEstimation)
 		if result.Error != nil {
 			log.Fatalf("failed to create battery: %v", result.Error)
 		}
 
 		modelCars.DimensionsAndWeight.CarId = modelCars.Id
 
-		result = Database.Db.Create(&modelCars.DimensionsAndWeight)
+		result = Config.Db.Create(&modelCars.DimensionsAndWeight)
 		if result.Error != nil {
 			log.Fatalf("failed to create battery: %v", result.Error)
 		}
 
 		modelCars.Miscellaneous.CarId = modelCars.Id
 
-		result = Database.Db.Create(&modelCars.Miscellaneous)
+		result = Config.Db.Create(&modelCars.Miscellaneous)
 		if result.Error != nil {
 			log.Fatalf("failed to create battery: %v", result.Error)
 		}
 
 		for i := range modelCars.ChargeTypes {
 			modelCars.ChargeTypes[i].CarId = modelCars.Id
-			result = Database.Db.Create(&modelCars.ChargeTypes[i])
+			result = Config.Db.Create(&modelCars.ChargeTypes[i])
 			if result.Error != nil {
 				log.Fatalf("failed to create chargetypes: %v", result.Error)
 			}
 			for j := range modelCars.ChargeTypes[i].ChargingPoints {
 				modelCars.ChargeTypes[i].ChargingPoints[j].ChargeTypeId = modelCars.ChargeTypes[i].Id
-				result = Database.Db.Create(&modelCars.ChargeTypes[i].ChargingPoints[j])
+				result = Config.Db.Create(&modelCars.ChargeTypes[i].ChargingPoints[j])
 				if result.Error != nil {
 					log.Fatalf("failed to create chargepoints: %v", result.Error)
 				}

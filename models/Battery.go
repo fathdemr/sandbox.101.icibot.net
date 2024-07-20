@@ -1,8 +1,8 @@
 package models
 
 type Battery struct {
-	Id                   uint    `gorm:"primary_key" json:"id"`
-	CarId                uint    `json:"car_id"`
+	Id                   uint64  `gorm:"primary_key" json:"id"`
+	CarId                uint64  `json:"car_id"`
 	NominalCapacity      float64 `json:"nominal_capacity"`
 	UsableCapacity       float64 `json:"usable_capacity"`
 	BatteryType          string  `json:"battery_type"`
@@ -15,4 +15,11 @@ type Battery struct {
 	FormFactor           string  `json:"form_factor"`
 	WarrantyMileage      string  `json:"warranty_mileage"`
 	BatteryNameReference string  `json:"battery_name_reference"`
+	BaseRecordFields
+}
+
+func (b Battery) CalcRange(currentCelsius float32) (rangeInKm float32) {
+	// Calculate the range based on the current temperature
+	rangeInKm = 300
+	return
 }

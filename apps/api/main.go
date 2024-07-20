@@ -3,24 +3,30 @@ package main
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"sandbox.101.icibot.net/Database"
-	"sandbox.101.icibot.net/pkg/apiroutes"
-	"sandbox.101.icibot.net/services"
+	"sandbox.101.icibot.net/Config"
+	apiroutes2 "sandbox.101.icibot.net/apps/api/apiroutes"
+	"sandbox.101.icibot.net/apps/api/services"
+	"sandbox.101.icibot.net/middlewares"
 )
 
 func main() {
 
-	err := Database.InitDb()
+	err := Config.InitDb()
 	if err != nil {
 		panic(err)
 	}
 
 	app := gin.Default()
 
+	// Public routes
 	api := app.Group("/")
-	apiroutes.CarRoute(api)
-	apiroutes.RealRangeEstimationRoute(api)
-	apiroutes.Ping(api)
+	apiroutes2.RealRangeEstimationRoute(api)
+	apiroutes2.Ping(api)
+
+	// Protected routes
+	protectedRoots := app.Group("/api")
+	protectedRoots.Use(middlewares.CheckToken)
+	apiroutes2.CarRoute(protectedRoots)
 
 	var Heat int64 = 24
 	var currentCharge uint64 = 100

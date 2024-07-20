@@ -2,7 +2,7 @@ package services
 
 import (
 	"fmt"
-	"sandbox.101.icibot.net/Database"
+	"sandbox.101.icibot.net/Config"
 )
 
 var sql = `
@@ -60,7 +60,7 @@ func Consumption(id uint64, currentCharge uint64, Heat int64) (maxRange float64)
 
 	var result ConsResponse = ConsResponse{}
 
-	err := Database.Db.
+	err := Config.Db.
 		Raw(sql, id).
 		Scan(&result).Error
 

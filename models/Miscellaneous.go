@@ -1,8 +1,8 @@
 package models
 
 type Miscellaneous struct {
-	Id                  uint   `gorm:"primary_key" json:"id"`
-	CarId               uint   `json:"car_id"`
+	Id                  uint64 `gorm:"primary_key" json:"id"`
+	CarId               uint64 `json:"car_id"`
 	NumberSeats         string `json:"number_seats"`
 	Isofix              string `json:"isofix"`
 	TurningCircle       string `json:"turning_circle"`
@@ -13,4 +13,5 @@ type Miscellaneous struct {
 	RoofRails           string `json:"roof_rails"`
 	HeatPump            string `json:"heat_pump"`
 	HpStandardEquipment string `json:"hp_standard_equipment"`
+	BaseRecordFields
 }

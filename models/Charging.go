@@ -1,8 +1,8 @@
 package models
 
 type Charging struct {
-	Id                             uint   `gorm:"primary_key" json:"id"`
-	CarId                          uint   `json:"car_id"`
+	Id                             uint64 `gorm:"primary_key" json:"id"`
+	CarId                          uint64 `json:"car_id"`
 	HomeChargePort                 string `json:"home_charge_port"`
 	HomeChargeTime0To415Km         uint64 `json:"home_charge_time_0_to_415_km"`
 	HomePortLocation               string `json:"home_port_location"`
@@ -17,4 +17,5 @@ type Charging struct {
 	FastChargePower10To80P         uint64 `json:"fast_charge_power_10_to_80p"`
 	PlugAndChargeSupported         string `json:"plug_and_charge_supported"`
 	PlugAndChargeSupportedProtocol string `json:"plug_and_charge_supported_protocol"`
+	BaseRecordFields
 }

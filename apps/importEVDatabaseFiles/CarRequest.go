@@ -1,4 +1,4 @@
-package requestmodels
+package main
 
 type CarRequest struct {
 	CarModel                    string                      `json:"car_model"`
