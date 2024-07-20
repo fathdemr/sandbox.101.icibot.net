@@ -9,10 +9,10 @@ import (
 
 var (
 	appDBHost         = os.Getenv("APP_DB_HOST")
-	appDBUserName     = "fathdemr"
-	appDBUserPassword = "12karakter5334"
-	appDBName         = "dbsandbox"
-	appDBPort         = "5432"
+	appDBUserName     = os.Getenv("APP_DB_USER_NAME")
+	appDBUserPassword = os.Getenv("APP_DB_USER_PASSWORD")
+	appDBName         = os.Getenv("APP_DB_NAME")
+	appDBPort         = os.Getenv("APP_DB_PORT")
 	Db                *gorm.DB
 )
 
