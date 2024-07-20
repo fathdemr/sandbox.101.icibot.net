@@ -80,6 +80,6 @@ func Consumption(id uint64, currentCharge uint64, Heat int64) (maxRange float64)
 }
 
 func ChargeStationCalc(id uint64) {
-	maxRange := Consumption(id, 100, 24)
+	//maxRange := Consumption(id, 100, 24)
 
 }
