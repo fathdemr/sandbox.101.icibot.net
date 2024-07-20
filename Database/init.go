@@ -4,10 +4,11 @@ import (
 	"fmt"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"os"
 )
 
 var (
-	appDBHost         = "sandbox.s101.icibot.net"
+	appDBHost         = os.Getenv("APP_DB_HOST")
 	appDBUserName     = "fathdemr"
 	appDBUserPassword = "12karakter5334"
 	appDBName         = "dbsandbox"
