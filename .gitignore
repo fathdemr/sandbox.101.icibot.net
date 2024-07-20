@@ -1,7 +1,4 @@
-.idea
 
-
-.env
-
-
-/vendor
+!/.idea/
+!/.env
+!/vendor/
