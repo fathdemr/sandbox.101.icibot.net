@@ -17,5 +17,4 @@ type Charging struct {
 	FastChargePower10To80P         uint64 `json:"fast_charge_power_10_to_80p"`
 	PlugAndChargeSupported         string `json:"plug_and_charge_supported"`
 	PlugAndChargeSupportedProtocol string `json:"plug_and_charge_supported_protocol"`
-	BaseRecordFields
 }

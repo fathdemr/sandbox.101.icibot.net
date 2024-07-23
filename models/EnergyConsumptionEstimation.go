@@ -9,5 +9,4 @@ type EnergyConsumptionEstimation struct {
 	CityMildWeather     uint64 `json:"city_mild_weather"`
 	HighwayMildWeather  uint64 `json:"highway_mild_weather"`
 	CombinedMildWeather uint64 `json:"combined_mild_weather"`
-	BaseRecordFields
 }

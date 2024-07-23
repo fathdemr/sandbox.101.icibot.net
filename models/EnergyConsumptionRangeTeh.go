@@ -7,5 +7,4 @@ type EnergyConsumptionRangeTeh struct {
 	Co2Emissions          uint64  `json:"co2_emissions"`
 	VehicleConsumption    uint64  `json:"vehicle_consumption"`
 	VehicleFuelEquivalent float64 `json:"vehicle_fuel_equivalent"`
-	BaseRecordFields
 }

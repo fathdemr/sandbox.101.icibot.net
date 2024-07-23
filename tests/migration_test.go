@@ -17,19 +17,8 @@ func TestAutoMigrate(t *testing.T) {
 
 	err = Config.Db.AutoMigrate(
 		//&models.Car{},
-		//&models.Battery{},
-		//&models.BidirectionalCharging{},
-		//&models.Charging{},
 		//&models.ChargeTypes{},
 		&models.ChargingPoints{},
-		//&models.DimensionsAndWeight{},
-		//&models.EnergyConsumptionEstimation{},
-		//&models.EnergyConsumptionRangeReal{},
-		//&models.EnergyConsumptionRangeTeh{},
-		//&models.EnergyConsumptionRangeTel{},
-		//&models.Miscellaneous{},
-		//&models.Performance{},
-		//&models.RealRangeEstimation{},
 		//&models.Station{},
 		//&models.User{},
 	)
@@ -59,12 +48,127 @@ func TestAutoMigrate(t *testing.T) {
 				}
 			}
 
+			if point.AvgPowerKW == 0 {
+				if err = Config.Db.Delete(&point).Error; err != nil {
+					t.Error(err)
+				}
+			}
+
+			if point.RateKM == 0 {
+				if err = Config.Db.Delete(&point).Error; err != nil {
+					t.Error(err)
+				}
+			}
+
 			wg.Done()
 
 		}(point)
 	}
 
 	wg.Wait()
+
 	fmt.Println(len(chargingPoints))
+
+	/*
+
+		var performance []models.Performance
+
+		Config.Db.Find(&performance)
+
+		var wg sync.WaitGroup
+		for _, point := range performance {
+			wg.Add(1)
+			go func(pt models.Performance) {
+				Config.Db.Save(&point)
+
+				if point.Acceleration0To100SEC == 0 {
+					if err = Config.Db.Delete(&point).Error; err != nil {
+						t.Error(err)
+					}
+				}
+
+				if point.TotalPowerKW == 0 {
+					if err = Config.Db.Delete(&point).Error; err != nil {
+						t.Error(err)
+					}
+				}
+
+				if point.TopSpeedKM == 0 {
+					if err = Config.Db.Delete(&point).Error; err != nil {
+						t.Error(err)
+					}
+				}
+
+				if point.ElectricRangeKM == 0 {
+					if err = Config.Db.Delete(&point).Error; err != nil {
+						t.Error(err)
+					}
+				}
+
+				wg.Done()
+
+			}(point)
+
+		}
+
+		wg.Wait()
+
+	*/
+	/*
+
+		var realRange []models.RealRangeEstimation
+
+		var wg sync.WaitGroup
+
+		Config.Db.Find(&realRange)
+
+		for _, point := range realRange {
+			wg.Add(1)
+			go func(point models.RealRangeEstimation) {
+				Config.Db.Save(&point)
+
+				if point.CityColdWeatherKM == 0 {
+					if err = Config.Db.Delete(&point).Error; err != nil {
+						t.Error(err)
+					}
+				}
+
+				if point.HighwayColdWeatherKM == 0 {
+					if err = Config.Db.Delete(&point).Error; err != nil {
+						t.Error(err)
+					}
+				}
+
+				if point.CombinedColdWeatherKM == 0 {
+					if err = Config.Db.Delete(&point).Error; err != nil {
+						t.Error(err)
+					}
+				}
+
+				if point.CityMildWeatherKM == 0 {
+					if err = Config.Db.Delete(&point).Error; err != nil {
+						t.Error(err)
+					}
+				}
+
+				if point.HighwayMildWeatherKM == 0 {
+					if err = Config.Db.Delete(&point).Error; err != nil {
+						t.Error(err)
+					}
+				}
+
+				if point.CombinedMildWeatherKM == 0 {
+					if err = Config.Db.Delete(&point).Error; err != nil {
+						t.Error(err)
+					}
+				}
+
+				wg.Done()
+			}(point)
+		}
+
+		wg.Wait()
+
+	*/
 
 }

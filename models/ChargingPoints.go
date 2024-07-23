@@ -7,15 +7,17 @@ import (
 )
 
 type ChargingPoints struct {
-	Id              uint64 `gorm:"primary_key" json:"id"`
-	CarID           uint64 `json:"car_id"`
-	ChargeTypeId    uint64 `json:"charge_type_id"`
-	ChargePointName string `json:"charge_point_name"`
-	MaxPower        string `json:"max_power"`
-	AvgPower        string `json:"avg_power"`
-	Time            string `json:"time"`
-	ChargeMinutes   uint64 `json:"charge_minutes"`
-	Rate            string `json:"rate"`
+	Id              uint64  `gorm:"primary_key" json:"id"`
+	CarID           uint64  `json:"car_id"`
+	ChargeTypeId    uint64  `json:"charge_type_id"`
+	ChargePointName string  `json:"charge_point_name"`
+	MaxPower        string  `json:"max_power"`
+	AvgPower        string  `json:"avg_power"`
+	AvgPowerKW      float64 `json:"avg_power_kw"`
+	Time            string  `json:"time"`
+	ChargeMinutes   uint64  `json:"charge_minutes"`
+	Rate            string  `json:"rate"`
+	RateKM          uint64  `json:"rate_km"`
 	BaseRecordFields
 }
 
@@ -44,6 +46,17 @@ func (cp *ChargingPoints) Validate() (err error) {
 			cp.ChargeMinutes = uint64(hours*60 + minutes)
 		}
 	}
+
+	if cp.AvgPower != "" {
+		AvgPowerStr := strings.Split(cp.AvgPower, " ")
+		cp.AvgPowerKW, _ = strconv.ParseFloat(AvgPowerStr[0], 64)
+	}
+
+	if cp.Rate != "" {
+		RateStr := strings.Split(cp.Rate, " ")
+		cp.RateKM, _ = strconv.ParseUint(RateStr[0], 10, 64)
+	}
+
 	return
 }
 

@@ -15,12 +15,31 @@ import (
 	"time"
 )
 
+var sql = `
+		select c.id,
+			   c.car_model,
+				b.usable_capacity,
+				e.vehicle_consumption
+		from cars c
+				 left join batteries b on c.id = b.car_id
+		left join energy_consumption_range_reals e on c.id = e.car_id
+		Where c.id = ?;
+`
+
+type ConsResponse struct {
+	ID                 uint64  `json:"id" gorm:"primary_key"`
+	CarModel           string  `json:"car_model"`
+	UsableCapacity     float64 `json:"usable_capacity"`
+	VehicleConsumption uint64  `json:"vehicle_consumption"`
+}
+
 type CalculateRootRequest struct {
 	FromDestination string           `json:"from_destination"`
 	ToDestination   string           `json:"to_destination"`
 	CurrentBattery  float32          `json:"current_battery"`
 	RouteDate       time.Time        `json:"route_date"`
 	Stations        []models.Station `json:"stations"` //
+	Car             []models.Car     `json:"car"`
 }
 
 type CalculateRootResponse struct {
@@ -29,7 +48,6 @@ type CalculateRootResponse struct {
 }
 
 func (s *CarService) CalculateRoot(request CalculateRootRequest) (response CalculateRootResponse, err error) {
-
 	return
 }
 

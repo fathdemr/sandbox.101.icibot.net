@@ -13,5 +13,4 @@ type Miscellaneous struct {
 	RoofRails           string `json:"roof_rails"`
 	HeatPump            string `json:"heat_pump"`
 	HpStandardEquipment string `json:"hp_standard_equipment"`
-	BaseRecordFields
 }

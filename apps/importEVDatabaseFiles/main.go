@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"io"
 	"log"
 	"os"
@@ -70,10 +71,10 @@ func convertCarRequestToCar(carRequest CarRequest) (models.Car, error) {
 		log.Fatal(err)
 	}
 
-	/*HomeChargeTime0To415Km := strings.Replace(carRequest.Charging.HomeChargeTime0To415Km, "h", "", 2)
-	HomeChargeTime0To415Km = strings.Replace(HomeChargeTime0To415Km, "m", "", 2)
+	fmt.Println(ParseUsableCapacity, ParseNominalCapacity)
 
-	*/
+	HomeChargeTime0To415Km := strings.Replace(carRequest.Charging.HomeChargeTime0To415Km, "h", "", 2)
+	HomeChargeTime0To415Km = strings.Replace(HomeChargeTime0To415Km, "m", "", 2)
 
 	HomeChargeSpeed := strings.Replace(carRequest.Charging.HomeChargeSpeed, " km/h", "", -1)
 	ParseHomeChargeSpeed, err := strconv.ParseUint(HomeChargeSpeed, 10, 64)
@@ -144,22 +145,62 @@ func convertCarRequestToCar(carRequest CarRequest) (models.Car, error) {
 	CombinedMildWeather := strings.Replace(carRequest.EnergyConsumptionEstimation.CombinedMildWeather, " Wh/km", "", -1)
 	ParseCombinedMildWeather, err := strconv.ParseUint(CombinedMildWeather, 10, 64)
 
+	CityColdWeatherValue := strings.Split(carRequest.RealRangeEstimation.CityColdWeather, " ")
+	CityColdWeatherKM, _ := strconv.ParseUint(CityColdWeatherValue[0], 10, 64)
+
+	HighwayColdWeatherValue := strings.Split(carRequest.RealRangeEstimation.HighwayColdWeather, " ")
+	HighwayColdWeatherKM, _ := strconv.ParseUint(HighwayColdWeatherValue[0], 10, 64)
+
+	CombinedColdWeatherValue := strings.Split(carRequest.RealRangeEstimation.CombinedColdWeather, " ")
+	CombinedColdWeatherKM, _ := strconv.ParseUint(CombinedColdWeatherValue[0], 10, 64)
+
+	CityMildWeatherValue := strings.Split(carRequest.RealRangeEstimation.CityMildWeather, " ")
+	CityMildWeatherKM, _ := strconv.ParseUint(CityMildWeatherValue[0], 10, 64)
+
+	HighwayMildWeatherValue := strings.Split(carRequest.RealRangeEstimation.HighwayMildWeather, " ")
+	HighwayMildWeatherKM, _ := strconv.ParseUint(HighwayMildWeatherValue[0], 10, 64)
+
+	CombinedMildWeatherValue := strings.Split(carRequest.RealRangeEstimation.CombinedMildWeather, " ")
+	CombinedMildWeatherKM, _ := strconv.ParseUint(CombinedMildWeatherValue[0], 10, 64)
+
 	RealRangeEstimation := models.RealRangeEstimation{
-		CityColdWeather:     carRequest.RealRangeEstimation.CityColdWeather,
-		HighwayColdWeather:  carRequest.RealRangeEstimation.HighwayColdWeather,
-		CombinedColdWeather: carRequest.RealRangeEstimation.CombinedColdWeather,
-		CityMildWeather:     carRequest.RealRangeEstimation.CityMildWeather,
-		HighwayMildWeather:  carRequest.RealRangeEstimation.HighwayMildWeather,
-		CombinedMildWeather: carRequest.RealRangeEstimation.CombinedMildWeather,
+		CityColdWeather:       carRequest.RealRangeEstimation.CityColdWeather,
+		CityColdWeatherKM:     CityColdWeatherKM,
+		HighwayColdWeather:    carRequest.RealRangeEstimation.HighwayColdWeather,
+		HighwayColdWeatherKM:  HighwayColdWeatherKM,
+		CombinedColdWeather:   carRequest.RealRangeEstimation.CombinedColdWeather,
+		CombinedColdWeatherKM: CombinedColdWeatherKM,
+		CityMildWeather:       carRequest.RealRangeEstimation.CityMildWeather,
+		CityMildWeatherKM:     CityMildWeatherKM,
+		HighwayMildWeather:    carRequest.RealRangeEstimation.HighwayMildWeather,
+		HighwayMildWeatherKM:  HighwayMildWeatherKM,
+		CombinedMildWeather:   carRequest.RealRangeEstimation.CombinedMildWeather,
+		CombinedMildWeatherKM: CombinedMildWeatherKM,
 	}
 
+	Acceleration0To100 := strings.ReplaceAll(carRequest.Performance.Acceleration0To100, " sec", "")
+	Acceleration0To100SEC, _ := strconv.ParseFloat(Acceleration0To100, 64)
+
+	TotalPower := strings.Split(carRequest.Performance.TotalPower, " ")
+	TotalPowerKW, _ := strconv.ParseUint(TotalPower[0], 10, 64)
+
+	TotalSpeed := strings.ReplaceAll(carRequest.Performance.TopSpeed, " km/h", "")
+	TopSpeedKM, _ := strconv.ParseUint(TotalSpeed, 10, 64)
+
+	ElectricRange := strings.ReplaceAll(carRequest.Performance.ElectricRange, " km", "")
+	ElectricRangeKM, _ := strconv.ParseUint(ElectricRange, 10, 64)
+
 	Performance := models.Performance{
-		Acceleration0To100: carRequest.Performance.Acceleration0To100,
-		TotalPower:         carRequest.Performance.TotalPower,
-		TopSpeed:           carRequest.Performance.TopSpeed,
-		TotalTorque:        carRequest.Performance.TotalTorque,
-		ElectricRange:      carRequest.Performance.ElectricRange,
-		Drive:              carRequest.Performance.Drive,
+		Acceleration0To100:    carRequest.Performance.Acceleration0To100,
+		Acceleration0To100SEC: Acceleration0To100SEC,
+		TotalPower:            carRequest.Performance.TotalPower,
+		TotalPowerKW:          TotalPowerKW,
+		TopSpeed:              carRequest.Performance.TopSpeed,
+		TopSpeedKM:            TopSpeedKM,
+		TotalTorque:           carRequest.Performance.TotalTorque,
+		ElectricRange:         carRequest.Performance.ElectricRange,
+		ElectricRangeKM:       ElectricRangeKM,
+		Drive:                 carRequest.Performance.Drive,
 	}
 
 	Battery := models.Battery{
@@ -322,7 +363,7 @@ func main() {
 
 	err := Config.InitDb()
 
-	requestCars, err := readJSONFiles("cmd/EVDatabase")
+	requestCars, err := readJSONFiles("apps/importEVDatabaseFiles/EVDatabase")
 	if err != nil {
 		log.Fatal("failed to read JSON file:", err)
 	}
@@ -339,83 +380,6 @@ func main() {
 			log.Fatalf("failed to create car: %v", result.Error)
 		}
 
-		modelCars.RealRangeEstimation.CarId = modelCars.Id
-
-		Config.Db.Create(&modelCars.RealRangeEstimation)
-		if result.Error != nil {
-			log.Fatalf("failed to create battery: %v", result.Error)
-		}
-
-		modelCars.Performance.CarId = modelCars.Id
-
-		result = Config.Db.Create(&modelCars.Performance)
-		if result.Error != nil {
-			log.Fatalf("failed to create battery: %v", result.Error)
-		}
-
-		modelCars.Battery.CarId = modelCars.Id
-
-		result = Config.Db.Create(&modelCars.Battery)
-		if result.Error != nil {
-			log.Fatalf("failed to create battery: %v", result.Error)
-		}
-
-		modelCars.Charging.CarId = modelCars.Id
-
-		result = Config.Db.Create(&modelCars.Charging)
-		if result.Error != nil {
-			log.Fatalf("failed to create battery: %v", result.Error)
-		}
-
-		modelCars.BidirectionalCharging.CarId = modelCars.Id
-
-		result = Config.Db.Create(&modelCars.BidirectionalCharging)
-		if result.Error != nil {
-			log.Fatalf("failed to create battery: %v", result.Error)
-		}
-
-		modelCars.EnergyConsumptionRangeReal.CarId = modelCars.Id
-
-		result = Config.Db.Create(&modelCars.EnergyConsumptionRangeReal)
-		if result.Error != nil {
-			log.Fatalf("failed to create battery: %v", result.Error)
-		}
-
-		modelCars.EnergyConsumptionRangeTel.CarId = modelCars.Id
-
-		result = Config.Db.Create(&modelCars.EnergyConsumptionRangeTel)
-		if result.Error != nil {
-			log.Fatalf("failed to create battery: %v", result.Error)
-		}
-
-		modelCars.EnergyConsumptionRangeTeh.CarId = modelCars.Id
-
-		result = Config.Db.Create(&modelCars.EnergyConsumptionRangeTeh)
-		if result.Error != nil {
-			log.Fatalf("failed to create battery: %v", result.Error)
-		}
-
-		modelCars.EnergyConsumptionEstimation.CarId = modelCars.Id
-
-		result = Config.Db.Create(&modelCars.EnergyConsumptionEstimation)
-		if result.Error != nil {
-			log.Fatalf("failed to create battery: %v", result.Error)
-		}
-
-		modelCars.DimensionsAndWeight.CarId = modelCars.Id
-
-		result = Config.Db.Create(&modelCars.DimensionsAndWeight)
-		if result.Error != nil {
-			log.Fatalf("failed to create battery: %v", result.Error)
-		}
-
-		modelCars.Miscellaneous.CarId = modelCars.Id
-
-		result = Config.Db.Create(&modelCars.Miscellaneous)
-		if result.Error != nil {
-			log.Fatalf("failed to create battery: %v", result.Error)
-		}
-
 		for i := range modelCars.ChargeTypes {
 			modelCars.ChargeTypes[i].CarId = modelCars.Id
 			result = Config.Db.Create(&modelCars.ChargeTypes[i])
@@ -424,6 +388,7 @@ func main() {
 			}
 			for j := range modelCars.ChargeTypes[i].ChargingPoints {
 				modelCars.ChargeTypes[i].ChargingPoints[j].ChargeTypeId = modelCars.ChargeTypes[i].Id
+				modelCars.ChargeTypes[i].ChargingPoints[j].CarID = modelCars.ChargeTypes[i].CarId
 				result = Config.Db.Create(&modelCars.ChargeTypes[i].ChargingPoints[j])
 				if result.Error != nil {
 					log.Fatalf("failed to create chargepoints: %v", result.Error)

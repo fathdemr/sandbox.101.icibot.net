@@ -19,5 +19,4 @@ type DimensionsAndWeight struct {
 	TowingWeightUnBraked   string `json:"towing_weight_un_braked"`
 	TowingWeightBraked     string `json:"towing_weight_braked"`
 	VerticalLoadMax        string `json:"vertical_load_max"`
-	BaseRecordFields
 }

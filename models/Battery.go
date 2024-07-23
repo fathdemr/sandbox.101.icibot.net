@@ -15,7 +15,6 @@ type Battery struct {
 	FormFactor           string  `json:"form_factor"`
 	WarrantyMileage      string  `json:"warranty_mileage"`
 	BatteryNameReference string  `json:"battery_name_reference"`
-	BaseRecordFields
 }
 
 func (b Battery) CalcRange(currentCelsius float32) (rangeInKm float32) {

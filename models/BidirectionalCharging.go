@@ -15,5 +15,4 @@ type BidirectionalCharging struct {
 	V2GMaxOutputPowerAc string `json:"v2g_max_output_power_ac"`
 	V2GViaDcSupported   string `json:"v2g_via_dc_supported"`
 	V2GMaxOutputPowerDc string `json:"v2g_max_output_power_dc"`
-	BaseRecordFields
 }
