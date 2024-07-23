@@ -1,8 +1,6 @@
 package models
 
 type Battery struct {
-	Id                   uint64  `gorm:"primary_key" json:"id"`
-	CarId                uint64  `json:"car_id"`
 	NominalCapacity      float64 `json:"nominal_capacity"`
 	UsableCapacity       float64 `json:"usable_capacity"`
 	BatteryType          string  `json:"battery_type"`

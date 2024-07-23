@@ -1,8 +1,6 @@
 package models
 
 type Miscellaneous struct {
-	Id                  uint64 `gorm:"primary_key" json:"id"`
-	CarId               uint64 `json:"car_id"`
 	NumberSeats         string `json:"number_seats"`
 	Isofix              string `json:"isofix"`
 	TurningCircle       string `json:"turning_circle"`

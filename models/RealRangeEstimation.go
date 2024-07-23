@@ -1,8 +1,6 @@
 package models
 
 type RealRangeEstimation struct {
-	Id                    uint64 `gorm:"primary_key" json:"id"`
-	CarId                 uint64 `json:"car_id"`
 	CityColdWeather       string `json:"city_cold_weather"`
 	CityColdWeatherKM     uint64 `json:"city_cold_weather_km"`
 	HighwayColdWeather    string `json:"highway_cold_weather"`

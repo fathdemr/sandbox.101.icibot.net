@@ -1,8 +1,6 @@
 package models
 
 type DimensionsAndWeight struct {
-	Id                     uint64 `gorm:"primary_key" json:"id"`
-	CarId                  uint64 `json:"car_id"`
 	Length                 string `json:"length"`
 	Width                  string `json:"width"`
 	WidthWithMirrors       string `json:"width_with_mirrors"`

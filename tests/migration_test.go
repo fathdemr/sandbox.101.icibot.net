@@ -16,11 +16,11 @@ func TestAutoMigrate(t *testing.T) {
 	}
 
 	err = Config.Db.AutoMigrate(
-		//&models.Car{},
-		//&models.ChargeTypes{},
+		&models.Car{},
+		&models.ChargeTypes{},
 		&models.ChargingPoints{},
-		//&models.Station{},
-		//&models.User{},
+		&models.Station{},
+		&models.User{},
 	)
 	if err != nil {
 		t.Error(err)

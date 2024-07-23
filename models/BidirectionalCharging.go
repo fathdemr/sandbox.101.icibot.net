@@ -1,8 +1,6 @@
 package models
 
 type BidirectionalCharging struct {
-	Id                  uint64 `gorm:"primary_key" json:"id"`
-	CarId               uint64 `json:"car_id"`
 	V2LSupported        string `json:"v2l_supported"`
 	ExteriorOutlets     string `json:"exterior_outlets"`
 	V2LMaxOutputPower   string `json:"v2l_max_output_power"`

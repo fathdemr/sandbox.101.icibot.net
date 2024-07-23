@@ -190,7 +190,7 @@ func convertCarRequestToCar(carRequest CarRequest) (models.Car, error) {
 	ElectricRange := strings.ReplaceAll(carRequest.Performance.ElectricRange, " km", "")
 	ElectricRangeKM, _ := strconv.ParseUint(ElectricRange, 10, 64)
 
-	Performance := models.Performance{
+	performance := models.Performance{
 		Acceleration0To100:    carRequest.Performance.Acceleration0To100,
 		Acceleration0To100SEC: Acceleration0To100SEC,
 		TotalPower:            carRequest.Performance.TotalPower,
@@ -203,7 +203,7 @@ func convertCarRequestToCar(carRequest CarRequest) (models.Car, error) {
 		Drive:                 carRequest.Performance.Drive,
 	}
 
-	Battery := models.Battery{
+	battery := models.Battery{
 		NominalCapacity:      ParseNominalCapacity,
 		UsableCapacity:       ParseUsableCapacity,
 		BatteryType:          carRequest.Battery.BatteryType,
@@ -218,7 +218,7 @@ func convertCarRequestToCar(carRequest CarRequest) (models.Car, error) {
 		BatteryNameReference: carRequest.Battery.BatteryNameReference,
 	}
 
-	Charging := models.Charging{
+	charging := models.Charging{
 		HomeChargePort: carRequest.Charging.HomeChargePort,
 		//HomeChargeTime0To415Km
 		HomePortLocation: carRequest.Charging.HomePortLocation,
@@ -235,7 +235,7 @@ func convertCarRequestToCar(carRequest CarRequest) (models.Car, error) {
 		PlugAndChargeSupportedProtocol: carRequest.Charging.PlugAndChargeSupportedProtocol,
 	}
 
-	BidirectionalCharging := models.BidirectionalCharging{
+	bidirectionalCharging := models.BidirectionalCharging{
 		V2LSupported:        carRequest.BidirectionalCharging.V2LSupported,
 		ExteriorOutlets:     carRequest.BidirectionalCharging.ExteriorOutlets,
 		V2LMaxOutputPower:   carRequest.BidirectionalCharging.V2LMaxOutputPower,
@@ -250,28 +250,28 @@ func convertCarRequestToCar(carRequest CarRequest) (models.Car, error) {
 		V2GMaxOutputPowerDc: carRequest.BidirectionalCharging.V2GMaxOutputPowerDc,
 	}
 
-	EnergyConsumptionRangeReal := models.EnergyConsumptionRangeReal{
-		Range:                 ParseRange,
-		Co2Emissions:          ParseCo2Emissions,
-		VehicleConsumption:    ParseVehicleConsumption,
-		VehicleFuelEquivalent: ParseVehicleFuelEquivalent,
+	energyConsumptionRangeReal := models.EnergyConsumptionRangeReal{
+		RangeReal:                 ParseRange,
+		Co2EmissionsReal:          ParseCo2Emissions,
+		VehicleConsumptionReal:    ParseVehicleConsumption,
+		VehicleFuelEquivalentReal: ParseVehicleFuelEquivalent,
 	}
 
-	EnergyConsumptionRangeTel := models.EnergyConsumptionRangeTel{
-		Range:                 ParseTelRange,
-		Co2Emissions:          ParseTelCo2Emissions,
-		VehicleConsumption:    ParseTelVehicleConsumption,
-		VehicleFuelEquivalent: ParseTelVehicleFuelEquivalent,
+	energyConsumptionRangeTel := models.EnergyConsumptionRangeTel{
+		RangeTel:                 ParseTelRange,
+		Co2EmissionsTel:          ParseTelCo2Emissions,
+		VehicleConsumptionTel:    ParseTelVehicleConsumption,
+		VehicleFuelEquivalentTel: ParseTelVehicleFuelEquivalent,
 	}
 
-	EnergyConsumptionRangeTeh := models.EnergyConsumptionRangeTeh{
-		Range:                 ParseTehRange,
-		Co2Emissions:          ParseTehCo2Emissions,
-		VehicleConsumption:    ParseTehVehicleConsumption,
-		VehicleFuelEquivalent: ParseTehVehicleFuelEquivalent,
+	energyConsumptionRangeTeh := models.EnergyConsumptionRangeTeh{
+		RangeTeh:                 ParseTehRange,
+		Co2EmissionsTeh:          ParseTehCo2Emissions,
+		VehicleConsumptionTeh:    ParseTehVehicleConsumption,
+		VehicleFuelEquivalentTeh: ParseTehVehicleFuelEquivalent,
 	}
 
-	EnergyConsumptionEstimation := models.EnergyConsumptionEstimation{
+	energyConsumptionEstimation := models.EnergyConsumptionEstimation{
 		CityColdWeather:     ParseCityColdWeather,
 		HighwayColdWeather:  ParseHighwayColdWeather,
 		CombinedColdWeather: ParseCombinedColdWeather,
@@ -280,7 +280,7 @@ func convertCarRequestToCar(carRequest CarRequest) (models.Car, error) {
 		CombinedMildWeather: ParseCombinedMildWeather,
 	}
 
-	DimensionsAndWeight := models.DimensionsAndWeight{
+	dimensionsAndWeight := models.DimensionsAndWeight{
 		Length:                 carRequest.DimensionsAndWeight.Length,
 		Width:                  carRequest.DimensionsAndWeight.Width,
 		WidthWithMirrors:       carRequest.DimensionsAndWeight.WidthWithMirrors,
@@ -299,7 +299,7 @@ func convertCarRequestToCar(carRequest CarRequest) (models.Car, error) {
 		VerticalLoadMax:        carRequest.DimensionsAndWeight.VerticalLoadMax,
 	}
 
-	Miscellaneous := models.Miscellaneous{
+	miscellaneous := models.Miscellaneous{
 		NumberSeats:         carRequest.Miscellaneous.NumberSeats,
 		Isofix:              carRequest.Miscellaneous.Isofix,
 		TurningCircle:       carRequest.Miscellaneous.TurningCircle,
@@ -341,17 +341,17 @@ func convertCarRequestToCar(carRequest CarRequest) (models.Car, error) {
 		UsableBattery:               carRequest.UsableBattery,
 		RealRange:                   carRequest.RealRange,
 		Efficiency:                  carRequest.Efficiency,
-		RealRangeEstimation:         &RealRangeEstimation,
-		Performance:                 &Performance,
-		Battery:                     &Battery,
-		Charging:                    &Charging,
-		BidirectionalCharging:       &BidirectionalCharging,
-		EnergyConsumptionRangeReal:  &EnergyConsumptionRangeReal,
-		EnergyConsumptionRangeTel:   &EnergyConsumptionRangeTel,
-		EnergyConsumptionRangeTeh:   &EnergyConsumptionRangeTeh,
-		EnergyConsumptionEstimation: &EnergyConsumptionEstimation,
-		DimensionsAndWeight:         &DimensionsAndWeight,
-		Miscellaneous:               &Miscellaneous,
+		RealRangeEstimation:         RealRangeEstimation,
+		Performance:                 performance,
+		Battery:                     battery,
+		Charging:                    charging,
+		BidirectionalCharging:       bidirectionalCharging,
+		EnergyConsumptionRangeReal:  energyConsumptionRangeReal,
+		EnergyConsumptionRangeTel:   energyConsumptionRangeTel,
+		EnergyConsumptionRangeTeh:   energyConsumptionRangeTeh,
+		EnergyConsumptionEstimation: energyConsumptionEstimation,
+		DimensionsAndWeight:         dimensionsAndWeight,
+		Miscellaneous:               miscellaneous,
 		ChargeTypes:                 chargeTypes,
 	}
 

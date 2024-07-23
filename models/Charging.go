@@ -1,8 +1,6 @@
 package models
 
 type Charging struct {
-	Id                             uint64 `gorm:"primary_key" json:"id"`
-	CarId                          uint64 `json:"car_id"`
 	HomeChargePort                 string `json:"home_charge_port"`
 	HomeChargeTime0To415Km         uint64 `json:"home_charge_time_0_to_415_km"`
 	HomePortLocation               string `json:"home_port_location"`
