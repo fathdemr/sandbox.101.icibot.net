@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"sandbox.101.icibot.net/Config"
-	apiroutes2 "sandbox.101.icibot.net/apps/api/apiroutes"
+	"sandbox.101.icibot.net/apps/api/apiroutes"
 	"sandbox.101.icibot.net/apps/api/services"
 	"sandbox.101.icibot.net/middlewares"
 )
@@ -20,13 +20,13 @@ func main() {
 
 	// Public routes
 	api := app.Group("/")
-	apiroutes2.RealRangeEstimationRoute(api)
-	apiroutes2.Ping(api)
+	apiroutes.RealRangeEstimationRoute(api)
+	apiroutes.Ping(api)
 
 	// Protected routes
 	protectedRoots := app.Group("/api")
 	protectedRoots.Use(middlewares.CheckToken)
-	apiroutes2.CarRoute(protectedRoots)
+	apiroutes.CarRoute(protectedRoots)
 
 	var Heat int64 = 24
 	var currentCharge uint64 = 100
